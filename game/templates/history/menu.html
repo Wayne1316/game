@@ -1,0 +1,21 @@
+{% load static %}
+{% load game_tags %}
+{% get_subjects as subjects %}
+
+<div class="uk-width-large-1-4">
+  <div class="listTabs">
+    <ul
+      class="uk-nav uk-nav-side uk-nav-parent-icon uk-grid uk-grid-collapse uk-grid-divider uk-grid-width-1-2 uk-grid-width-large-1-1 uk-margin-remove"
+      data-uk-nav>
+
+      <li class="uk-text-bold uk-margin-remove uk-padding-remove">
+        <a class="line_height1_lInherit" href="{% url 'game:history_list' %}" title="All">All</a>
+      </li>
+      {% for subject in subjects %}
+      <li class="uk-text-bold uk-margin-remove uk-padding-remove" data-id="{{ subject.id }}">
+        <a class="line_height1_lInherit" href="{% url 'game:history_list' %}?subject={{ subject.id }}" title="{{ subject.title }}">{{ subject.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

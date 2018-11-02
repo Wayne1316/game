@@ -1,0 +1,308 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-29 08:30+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: admin.py:59 admin_base.py:72
+msgid "activity information"
+msgstr "活動資訊"
+
+#: admin.py:60 models.py:280 models.py:281
+msgid "table member"
+msgstr "隊伍成員"
+
+#: admin.py:61 models.py:298 models.py:299
+msgid "table review"
+msgstr "競賽考核"
+
+#: admin_base.py:36 models.py:263 models.py:264 models.py:272 models.py:289
+msgid "table team"
+msgstr "活動隊伍"
+
+#: admin_base.py:73 models.py:229 models.py:230 models.py:240
+msgid "table award setting"
+msgstr "活動獎項設定"
+
+#: admin_base.py:74 models.py:211 models.py:212 models.py:239
+msgid "table group setting"
+msgstr "活動組別設定"
+
+#: admin_base.py:75
+#| msgid "table group setting"
+msgid "table result setting"
+msgstr "成果公開"
+
+#: apps.py:12
+msgid "game"
+msgstr "競賽管理"
+
+#: apps.py:22
+msgid "parameter setting"
+msgstr "參數設定"
+
+#: form.py:51
+msgid "group not exists!!"
+msgstr "分組不存在"
+
+#: form_mixins.py:15
+msgid "status not in review"
+msgstr ""
+
+#: form_mixins.py:21
+msgid "user not found"
+msgstr "無此使用者"
+
+#: form_mixins.py:23
+msgid "you don't have permission to review"
+msgstr "您無此權限審查"
+
+#: form_mixins.py:29 form_mixins.py:35
+msgid "you don't have permission to edit this field"
+msgstr "您無權限修改此欄位"
+
+#: models.py:22
+msgid "award title"
+msgstr "題目類型標題"
+
+#: models.py:25 models.py:26 models.py:225
+msgid "table award"
+msgstr "獎項"
+
+#: models.py:34
+msgid "group title"
+msgstr "分組名稱"
+
+#: models.py:37 models.py:38 models.py:204
+msgid "table group"
+msgstr "組別"
+
+#: models.py:46
+msgid "subject title"
+msgstr "活動主題標題"
+
+#: models.py:47
+msgid "subject banner"
+msgstr "活動主題橫幅"
+
+#: models.py:50 models.py:51 models.py:96
+msgid "table subject"
+msgstr "活動主題"
+
+#: models.py:59
+msgid "member type"
+msgstr "類型標題"
+
+#: models.py:62 models.py:63 models.py:273
+msgid "table member type"
+msgstr "成員類型"
+
+#: models.py:72
+msgid "status edit"
+msgstr "編輯中"
+
+#: models.py:73
+msgid "status open"
+msgstr "開放中"
+
+#: models.py:74
+msgid "status calc"
+msgstr "評核中"
+
+#: models.py:75
+msgid "status close"
+msgstr "結束"
+
+#: models.py:78 models.py:123 models.py:124
+msgid "no game"
+msgstr "非競賽"
+
+#: models.py:79 models.py:137 models.py:138
+msgid "normal game"
+msgstr "一般競賽"
+
+#: models.py:80 models.py:151 models.py:152
+msgid "thesis game"
+msgstr "論文競賽"
+
+#: models.py:81 models.py:165 models.py:166
+msgid "national read game"
+msgstr "閱讀競賽(國)"
+
+#: models.py:82 models.py:179 models.py:180
+msgid "read game"
+msgstr "閱讀競賽"
+
+#: models.py:85
+msgid "table status"
+msgstr "活動狀態"
+
+#: models.py:91
+msgid "table form"
+msgstr "競賽類型"
+
+#: models.py:97
+msgid "activity title"
+msgstr "活動標題"
+
+#: models.py:98
+msgid "activity year"
+msgstr "學年度"
+
+#: models.py:99
+msgid "activity term"
+msgstr "學期"
+
+#: models.py:100
+msgid "activity descript"
+msgstr "活動描述"
+
+#: models.py:101
+msgid "activity exam description"
+msgstr "評分描述"
+
+#: models.py:102
+msgid "activity result description"
+msgstr "成果描述"
+
+#: models.py:103
+msgid "oeen copy"
+msgstr "開放抄襲欄位"
+
+#: models.py:104
+msgid "open suggest"
+msgstr "開放國賽欄位"
+
+#: models.py:105
+msgid "open lock"
+msgstr "開放鎖右鍵"
+
+#: models.py:106
+msgid "open form"
+msgstr "是否顯示表單"
+
+#: models.py:111 models.py:112 models.py:190 models.py:203 models.py:224
+msgid "table activity"
+msgstr "活動競賽"
+
+#: models.py:191
+msgid "user"
+msgstr "使用者"
+
+#: models.py:194 models.py:195 models.py:206 models.py:290
+msgid "table jury"
+msgstr "審查委員設定"
+
+#: models.py:205 models.py:226
+msgid "priority"
+msgstr "優先權"
+
+#: models.py:213
+msgid "review permission"
+msgstr "審核權限"
+
+#: models.py:238
+msgid "owner"
+msgstr "擁有者"
+
+#: models.py:242
+msgid "work name"
+msgstr "作品名稱"
+
+#: models.py:243
+msgid "team name"
+msgstr "隊伍名稱"
+
+#: models.py:244
+msgid "team file"
+msgstr "上傳檔案"
+
+#: models.py:245
+msgid "book title"
+msgstr "書名"
+
+#: models.py:246
+msgid "author"
+msgstr "作者"
+
+#: models.py:247
+msgid "ISBN"
+msgstr "ISBN"
+
+#: models.py:248
+msgid "publish date"
+msgstr "出版年"
+
+#: models.py:249
+msgid "version"
+msgstr "版次"
+
+#: models.py:250
+msgid "publisher"
+msgstr "出版社"
+
+#: models.py:251
+msgid "page"
+msgstr "頁數"
+
+#: models.py:252
+msgid "abstract"
+msgstr "摘要"
+
+#: models.py:253
+msgid "extract"
+msgstr "摘錄"
+
+#: models.py:254
+msgid "opinion"
+msgstr "看法"
+
+#: models.py:255
+msgid "discuss"
+msgstr "討論"
+
+#: models.py:256 models.py:294
+msgid "copy"
+msgstr "是否抄襲"
+
+#: models.py:257 models.py:295
+msgid "suggest"
+msgstr "開放國賽欄位"
+
+#: models.py:258
+msgid "active"
+msgstr "啟用"
+
+#: models.py:275
+msgid "member name"
+msgstr "成員姓名"
+
+#: models.py:276
+msgid "member class"
+msgstr "班級"
+
+#: models.py:277
+msgid "member set number"
+msgstr "座號"
+
+#: models.py:292
+msgid "score"
+msgstr "分數"
+
+#: models.py:293
+msgid "comment"
+msgstr "評語"

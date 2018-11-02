@@ -1,0 +1,64 @@
+{% extends 'history/base.html' %}
+{% load static %}
+
+{% block menujs %}
+  <script>
+    $(function () {
+
+      {% if object.subject.title %}
+        $('.listTabs ul>li:contains("{{ object.subject.title }}")').addClass('uk-active');
+      {% else %}
+        $('.listTabs ul>li:first').addClass('uk-active');
+      {% endif %}
+      {% if object.is_lock %}
+        $(document).bind("contextmenu", function (event) {
+          return false;
+        });
+      {% endif %}
+    })
+  </script>
+{% endblock %}
+
+{% block subject_image %}
+  {% if object.subject.banner %}
+    {{ object.subject.banner.url }}
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block customcontent %}
+  <div class="uk-width-large-3-4">
+    <h2 class="color_grey underline">{{ object.subject.title }}</h2>
+    <h4>{{ object.title }}</h4>
+    {% autoescape off %}
+      {{ object.result_descript }}
+    {% endautoescape %}
+    {% if teams %}
+      <h4 class="bg_primary padding_small">作品</h4>
+      <table class="table_rwd uk-table uk-table-striped">
+        <thead class="uk-hidden-small">
+        <tr>
+          <th class="uk-width-1-1 uk-width-medium-2-10">群組</th>
+          <th class="uk-width-1-1 uk-width-medium-2-10">獎項</th>
+          <th class="uk-width-1-1 uk-width-medium-4-10">作品名稱</th>
+          <th class="uk-width-1-1 uk-width-medium-2-10">姓名</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for team in teams %}
+        <tr>
+          <td class="uk-width-1-1 uk-width-medium-2-10">{{ team.group.group.title }}</td>
+          <td class="uk-width-1-1 uk-width-medium-2-10">{{ team.award.award.title }}
+          </td>
+          <td class="uk-width-1-1 uk-width-medium-4-10">
+            <a href="{% url 'game:history_team' team.id %}">{{ team.title }}</a>
+          </td>
+          <td class="uk-width-1-1 uk-width-medium-2-10">{{ team.owner.first_name }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </div>
+{% endblock %}

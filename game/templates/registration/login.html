@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="content uk-margin">
+  <div class="paddingB_xlarge uk-container uk-container-center">
+    <div class="card bg_white border_remove uk-panel uk-panel-box uk-padding-remove borderRadius10 box_shadow min_heightL800">
+      <div class="banner">
+        <div class="uk-container uk-container-center uk-padding-remove">
+          <div class="borderRadiusTL10 borderRadiusTR10 uk-cover-background" style="height: 300px; background-image: url({% static 'img/bannerA1.jpg' %});">
+            <img class="uk-invisible" src="img/blank.gif" alt="#" title="#">
+          </div>
+        </div>
+      </div>
+      <div class="padding_large">
+
+        <h1 class="uk-text-center">會員登入</h1>
+        {% if form.errors %}
+        <p>{{ login.errors }}</p>
+        {% endif %}
+
+        {% if next %}
+            {% if not user.is_authenticated %}
+            <p>請登入</p>
+            {% endif %}
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}" class="uk-form uk-container">
+          {% csrf_token %}
+          {{ form.as_div }}
+          <div class="uk-form-row">
+            <input type="submit" class="btn_primary uk-button uk-button-large uk-width-responsive" value="登　　入"/>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- .card -->
+  </div>
+  <!-- .uk-container -->
+</div>
+
+{% endblock %}

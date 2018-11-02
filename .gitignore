@@ -1,0 +1,10 @@
+.env
+Dockerfile
+docker-compose.yml
+*.pyc
+game/logs
+game/media
+game/staticfiles
+
+# exclude all .gitkeep
+!**/.gitkeep

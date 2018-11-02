@@ -1,0 +1,90 @@
+{% extends 'game/base.html' %}
+{% load pagination_tags %}
+{% load core_tags %}
+
+{% block customcontent %}
+  {% autopaginate teams 6 %}
+  <h2 class="color_grey underline">教師評核</h2>
+  <form class="uk-form" method="post">
+    {% csrf_token %}
+    <ol class="listBadge uk-grid uk-grid-small uk-grid-width-medium-1-2 uk-grid-width-large-1-3" data-uk-grid-margin>
+      {% for team in teams %}
+        {% with forloop.counter|stringformat:"s" as counter %}
+          {% with forms|index:counter as form %}
+            <li>
+              <div class="padding_medium border_remove uk-text-left uk-panel uk-panel-box uk-width-1-1">
+                <h4 class="underline border_grey uk-clearfix uk-margin-small-top uk-margin-small-bottom">
+                  <span class="uk-margin-small-bottom">{{ team.owner.first_name }}</span>
+                </h4>
+                <a class="linkline uk-margin-bottom" href="{% url 'game:jury_review' team.id %}">{{ team.title }}</a>
+                <div class="uk-form-row uk-grid uk-grid-small">
+                  {% error_list errors=form.team.errors %}
+                  {% with "team_id-"|add:counter as form_id %}
+                    <input type="hidden" value="{{ team.id }}" {% id_name form_id %}>
+                  {% endwith %}
+
+                  {% error_list errors=form.is_copy.errors %}
+                  {% if object.activity.is_copy %}
+                    <label for="is_copy-{{ counter }}">
+                      {% with "is_copy-"|add:counter as form_id %}
+                        <input class="uk-margin-small-right" type="checkbox" {% id_name form_id %}
+                          {% if team.id == form.team.value|add:"0" %}
+                            {% checked form.is_copy.value %}
+                          {% else %}
+                            {% checked team.review__is_copy %}
+                          {% endif %}>
+                      {% endwith %}
+                      是否抄襲</label>
+                  {% endif %}
+
+                  {% error_list errors=form.is_suggest.errors %}
+                  {% if object.activity.is_suggest %}
+                    <label for="is_suggest-{{ counter }}">
+                      {% with "is_suggest-"|add:counter as form_id %}
+                        <input class="uk-margin-small-right" type="checkbox" {% id_name form_id %}
+                          <input class="uk-margin-small-right" type="checkbox" {% id_name form_id %}
+                          {% if team.id == form.team.value|add:"0" %}
+                            {% checked form.is_suggest.value %}
+                          {% else %}
+                            {% checked team.review__is_suggest %}
+                          {% endif %}>
+                      {% endwith %}
+                      推薦國賽</label>
+                  {% endif %}
+                </div>
+                <div class="uk-form-row">
+                  {% error_list errors=form.score.errors %}
+                  <label class="uk-width-1-1" for="score-{{ counter }}">教師評分</label>
+                  {% with "score-"|add:counter as form_id %}
+                    {% if team.id == form.team.value|add:"0" %}
+                      <input class="uk-width-1-1" type="text" placeholder="{{ object.activity.exam_descript }}"
+                      {% id_name form_id %} value="{{ form.score.value|default_if_none:"" }}">
+                    {% else %}
+                      <input class="uk-width-1-1" type="text" placeholder="{{ object.activity.exam_descript }}"
+                      {% id_name form_id %} value="{{ team.review__score|default_if_none:"" }}">
+                    {% endif %}
+                  {% endwith %}
+                </div>
+                {% error_list errors=form.comment.errors %}
+                <div class="uk-form-row">
+                  {% with "comment-"|add:counter as form_id %}
+                    {% if team.id == form.team.value|add:"0" %}
+                      <textarea class="noresize uk-width-1-1" rows="3" placeholder="請填寫評語" aria-label="comment"
+                      {% id_name form_id %}>{{ form.comment.value|default_if_none:"" }}</textarea>
+                    {% else %}
+                      <textarea class="noresize uk-width-1-1" rows="3" placeholder="請填寫評語" aria-label="comment"
+                      {% id_name form_id %}>{{ team.review__comment|default_if_none:"" }}</textarea>
+                    {% endif %}
+
+                  {% endwith %}
+                </div>
+              </div>
+            </li>
+          {% endwith %}
+        {% endwith %}
+      {% endfor %}
+    </ol>
+    <input class="btn_primary uk-button uk-button-large uk-width-1-1" type="submit" aria-label="save" value="儲存">
+    {% paginate using "components/page.html" %}
+  </form>
+{% endblock %}

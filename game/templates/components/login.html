@@ -1,0 +1,16 @@
+{% load user_tags %}
+{% get_login_form as login_form %}
+
+<div id="login" class="uk-modal">
+  <div class="uk-modal-dialog">
+    <a href="" class="uk-modal-close uk-close"></a>
+    <form method="post" action="{% url 'login' %}"  class="uk-form uk-container">
+      <h1 class="uk-text-center">會員登入</h1>
+      {% csrf_token %}
+      {{ login_form.as_div }}
+      <div class="uk-form-row">
+        <input type="submit" class="btn_primary uk-button uk-button-large uk-width-responsive" value="登　　入"/>
+      </div>
+    </form>
+  </div>
+</div>

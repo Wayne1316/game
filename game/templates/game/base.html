@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content uk-margin">
+  <div class="paddingB_xlarge uk-container uk-container-center">
+    <div
+      class="card bg_white border_remove uk-panel uk-panel-box uk-padding-remove borderRadius10 box_shadow min_heightL800">
+      <div class="banner">
+        <div class="uk-container uk-container-center uk-padding-remove">
+          <div class="borderRadiusTL10 borderRadiusTR10 uk-cover-background" style="height: 300px; background-image: url({% block subject_image %}{% static 'img/bannerA1.jpg' %}{% endblock %});">
+            <img class="uk-invisible" src="{% static 'img/blank.gif' %}" alt="#" title="#">
+          </div>
+        </div>
+      </div>
+      <div class="padding_large">
+        {% block customcontent %}
+        {% endblock %}
+      </div>
+    </div>
+    <!-- .card -->
+  </div>
+  <!-- .uk-container -->
+</div>
+{% endblock %}

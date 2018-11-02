@@ -1,0 +1,70 @@
+{% extends 'game/base.html' %}
+{% load game_tags %}
+
+
+{% block customcontent %}
+  <h2 class="color_grey underline">我的成果-{{ object.title }}</h2>
+  <ul class="uk-list uk-list-striped uk-text-center">
+    <li>
+      <div class="uk-width-medium-3-4 uk-width-xlarge-1-2 uk-container-center">
+        <h6 class="uk-grid">
+          <div class="uk-width-medium-1-3 uk-margin-small-top uk-margin-small-bottom text_center_mR">活動名稱</div>
+          <div class="uk-width-medium-2-3 uk-margin-small-top uk-margin-small-bottom"><strong>{{ object.group.activity.title }}</strong>
+          </div>
+        </h6>
+      </div>
+    </li>
+    <li>
+      <div class="uk-width-medium-3-4 uk-width-xlarge-1-2 uk-container-center">
+        <h6 class="uk-grid">
+          <div class="uk-width-medium-1-3 uk-margin-small-top uk-margin-small-bottom text_center_mR">學年度</div>
+          <div class="uk-width-medium-2-3 uk-margin-small-top uk-margin-small-bottom"><strong>{{ object.group.activity.year }}</strong></div>
+        </h6>
+      </div>
+    </li>
+    <li>
+      <div class="uk-width-medium-3-4 uk-width-xlarge-1-2 uk-container-center">
+        <h6 class="uk-grid">
+          <div class="uk-width-medium-1-3 uk-margin-small-top uk-margin-small-bottom text_center_mR">學期</div>
+          <div class="uk-width-medium-2-3 uk-margin-small-top uk-margin-small-bottom"><strong>{{ object.group.activity.term }}</strong></div>
+        </h6>
+      </div>
+    </li>
+    <li>
+      <div class="uk-width-medium-3-4 uk-width-xlarge-1-2 uk-container-center">
+        <h6 class="uk-grid">
+          <div class="uk-width-medium-1-3 uk-margin-small-top uk-margin-small-bottom text_center_mR">是否抄襲</div>
+          <div class="uk-width-medium-2-3 uk-margin-small-top uk-margin-small-bottom"><strong>{{ object.is_copy|yesno:"是,否"  }}</strong></div>
+        </h6>
+      </div>
+    </li>
+    <li>
+      <div class="uk-width-medium-3-4 uk-width-xlarge-1-2 uk-container-center">
+        <h6 class="uk-grid">
+          <div class="uk-width-medium-1-3 uk-margin-small-top uk-margin-small-bottom text_center_mR">推介參加國賽</div>
+          <div class="uk-width-medium-2-3 uk-margin-small-top uk-margin-small-bottom"><strong>{{ object.is_suggest|yesno:"是,否"  }}</strong></div>
+        </h6>
+      </div>
+    </li>
+    <li>
+      <div class="uk-width-medium-3-4 uk-width-xlarge-1-2 uk-container-center">
+        <h6 class="uk-grid">
+          <div class="uk-width-medium-1-3 uk-margin-small-top uk-margin-small-bottom text_center_mR">評語</div>
+          <div class="uk-width-medium-2-3 uk-margin-small-top uk-margin-small-bottom">
+            {% for review in reviews %}
+              <div class="uk-margin-small"><strong>教師{{ forloop.counter }}：<q class="quotesCH uk-padding-remove">{{ review.comment }}</q></strong></div>
+            {% endfor %}
+          </div>
+        </h6>
+      </div>
+    </li>
+    <li>
+      <div class="uk-width-medium-3-4 uk-width-xlarge-1-2 uk-container-center">
+        <h6 class="uk-grid">
+          <div class="uk-width-medium-1-3 uk-margin-small-top uk-margin-small-bottom text_center_mR">備註</div>
+          <div class="uk-width-medium-2-3 uk-margin-small-top uk-margin-small-bottom"><strong>{{ object.award.award.title }}</strong></div>
+        </h6>
+      </div>
+    </li>
+  </ul>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% load static %}
+<style>
+  .header-panel::after{
+    content: ' / ';
+  }
+</style>
+<body id="top" class="fullViewH uk-position-relative uk-cover-background uk-padding-remove">
+<header id="header" class="box_shadow3">
+  <div class="uk-position-relative">
+    <div class="bg_primary borderB2 border_white_opacity5 opacity50 uk-overlay-panel"></div>
+    <div class="uk-position-relative uk-padding-remove">
+      <div class="uk-container uk-container-center">
+        <div id="logoBar" class="marginTB_medium uk-grid uk-grid-small uk-position-relative uk-position-z-index"
+             data-uk-grid-margin>
+          <div class="uk-width-4-5 uk-width-medium-2-3 uk-width-large-1-2 uk-padding-remove uk-vertical-align">
+            <div class="uk-width-1-1 uk-vertical-align-middle"><a class="logo uk-width-1-1" href="{% url 'home' %}"><img
+              class="uk-width-1-1" src="{% static 'img/logo_white_act.svg' %}"></a></div>
+          </div>
+          <div class="text_center_mR uk-width-1-1 uk-width-medium-1-3 uk-width-large-1-2 uk-vertical-align">
+
+            <div class="uk-vertical-align-middle">
+              {% if user.is_authenticated %}
+              <span class="header-panel color_white ">
+                <span class="uk-margin-small-left">帳號:</span>
+                <span class="account uk-margin-small-left">{{ user.username }}</span>
+              </span>
+              {% if perms.game.review %}
+              <span class="header-panel color_white">
+                <a class=" uk-margin-small-left" href="{% url 'game:jury_list' %}">教師評核</a>
+              </span>
+              {% endif %}
+              <span class="header-panel color_white">
+                <a class="uk-margin-small-left" href="{% url 'game:achievement_list' %}">我的成果</a>
+              </span>
+              <span class="color_white">
+                <a class="uk-margin-small-left" href="{% url 'logout' %}">登出</a>
+              </span>
+
+              {% else %}
+              <a class="bg_white color_primary uk-button" href="#login" title="登入" data-uk-modal="{center:true}">
+                <i class="fas fa-user-circle fa-fw"></i>登入
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <!-- #logoBar -->
+      </div>
+    </div>
+    <!-- .uk-position-relative -->
+  </div>
+</header>

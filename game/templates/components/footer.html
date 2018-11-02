@@ -1,0 +1,32 @@
+{% load static %}
+{% load core_tags %}
+<div id="footer" class="padding_large uk-position-relative uk-margin-large-top">
+  <div class="bg_black opacity30 uk-overlay-panel"></div>
+  <div class="uk-container uk-container-center">
+    <footer class="uk-position-relative uk-position-z-index">
+      <div class="uk-grid uk-grid-small" data-uk-grid-margin>
+        <div class="uk-width-medium-1-3 uk-width-large-1-5 uk-width-xlarge-2-10 text_center_mL">
+          <img src="{% static 'img/logo_white_s.png' %}" alt="圖書館" title="圖書館">
+        </div>
+        <div class="uk-width-medium-2-3 uk-width-large-3-5 uk-width-xlarge-4-10 text_center_mL">
+          <small class="uk-padding-remove uk-margin-small"><span
+            class="paddingR_large">館址：</span><span>電話：</span>
+            <br>Copyright © 2018
+          </small>
+        </div>
+        <div class="uk-width-medium-1-3 uk-width-large-1-5 uk-width-xlarge-1-10">
+          <div class="uk-vertical-align text_center_mL">
+            <small class="uk-vertical-align-middle uk-width-medium-1-5 uk-width-xlarge-1-3"><i
+              class="uk-margin-small-right far fa-user fa-fw fa-2x"></i></small>
+            <small class="uk-vertical-align-middle uk-width-medium-4-5 uk-width-xlarge-2-3">瀏覽人數<span class="visitors">{% visit_quantity %}</span>
+            </small>
+          </div>
+        </div>
+        <div class="uk-width-medium-2-3 uk-width-large-1-1 uk-width-xlarge-3-10 text_center_mLlCxR">
+          <small class="uk-padding-remove uk-margin-small">Chrome50.0、Firefox52.0、IE10.0以上版本 <span
+            class="uk-text-small">最佳螢幕解析度 1920x1280</span></small>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

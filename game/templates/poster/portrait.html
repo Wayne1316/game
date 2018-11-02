@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" xml:lang="zh-Hant" style="width:3508px;height:4967px;">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title></title>
+</head>
+
+<body style="padding:0;margin:0;position: relative;">
+  <div style="position: relative;width:3508px;height:4967px;">
+    <div style="position: absolute;"><img src="{{ object.style.background.url }}" style="width: 3508px;height:4967px;"></div>
+    <div style="position: absolute;padding: 30% 10%;width: calc(100% - 10%*2);height: calc(100% - 21.3%*2);font-size: 6rem;overflow: hidden;">
+      <div style="max-height: 100%; overflow: hidden;">
+        {% autoescape off %}
+        {{ object.html }}
+        {% endautoescape %}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

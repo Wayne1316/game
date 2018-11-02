@@ -1,0 +1,31 @@
+{% extends 'game/base.html' %}
+{% load static %}
+{% load core_tags %}
+
+{% block subject_image %}
+  {% if object.subject.banner %}
+    {{ object.subject.banner.url }}
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block customcontent %}
+<div class="uk-grid uk-grid-medium" data-uk-grid-margin>
+  <div class="uk-width-large-4-4">
+    <h2 class="color_grey underline">{{ object.title }}</h2>
+    <ul>
+      <li>{% get_verbose_field_name object 'year' %}：{{ object.year }}</li>
+      <li>{% get_verbose_field_name object 'term' %}：{{ object.term }}</li>
+    </ul>
+    {% autoescape off %}
+    {{ object.descript }}
+    {% endautoescape %}
+    {% if object.form != 'no_game' %}
+      <p>
+        <a class="btn_primary uk-button uk-button-large uk-width-responsive" href="{% url 'game:join' object.id %}">我要報名</a>
+      </p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

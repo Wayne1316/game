@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content">
+  <div class="uk-visible-large" style="height: 70px;"></div>
+  <div class="paddingB_xlarge uk-container uk-container-center">
+    <div class="slider_tabs padding_large">
+      <div class="uk-slidenav-position" data-uk-slider="{infinite: false}">
+        <div class="uk-slider-container">
+          <ul class="uk-slider uk-grid-small uk-grid-width-1-3 uk-grid-width-medium-1-5 uk-grid-width-large-1-6">
+            {% for subject in subjects %}
+            <li class="padding_small uk-text-center">
+              <a class="border_hover_white_opacity5 border border4 border_white_opacity2 uk-border-circle" href="{% url 'game:history_list' %}?subject={{ subject.id }}"
+                 title="{{ subject.title }}">
+                <div class="uk-cover-background uk-position-relative"
+                     style="background-image: url({% static 'img/blank.gif' %});">
+                  <img class="uk-invisible" src="{% static 'img/blank.gif' %}" width="125" height="125" alt="Tab"
+                       title="{{ subject.title }}">
+                  <div
+                    class="bg_primary opacity80 uk-border-circle uk-position-cover uk-flex uk-flex-center uk-flex-middle"></div>
+                  <h5
+                    class="padding_medium uk-margin-remove uk-text-contrast uk-position-cover uk-flex uk-flex-center uk-flex-middle">
+                    {{ subject.title }}</h5>
+                </div>
+              </a>
+            </li>
+            {% endfor %}
+
+          </ul>
+        </div>
+        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" title="previous" aria-label="previous"
+           data-uk-slider-item="previous"></a>
+        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" title="next" aria-label="next"
+           data-uk-slider-item="next"></a>
+      </div>
+    </div>
+    <!-- .slider_tabs -->
+    <div class="uk-visible-large" style="height: 50px;"></div>
+    <div class="min_heightL600">
+      <div class="uk-grid uk-grid-small" data-uk-grid-margin>
+        <div class="uk-width-medium-1-2">
+          <div
+            class="card_bgTop bg_whiteOpacity8 border_remove borderRadius10 box_shadow1 uk-panel uk-panel-box uk-overflow-hidden"
+            style="max-height: 400px;">
+            <div class="bg_img_top uk-overlay-panel"></div>
+            <div class="padding_medium uk-position-relative">
+              <div class="bg_primary opacity80 uk-overlay-panel"></div>
+              <h5 class="uk-text-contrast uk-margin-remove uk-position-relative"><i
+                class="fas fa-paper-plane fa-fw"></i>活動公告</h5>
+            </div>
+            <ul class="marginT_medium uk-list uk-list-line uk-position-relative">
+              {% for activity in annotated %}
+              <li class="border_black_opacity5">
+                <a class="listFaIcon_indent hover_color_black uk-display-block" href="{% url 'game:detail' activity.id %}" title="{{ activity.title }}"><i
+                  class="fas fa-angle-right fa-fw"></i><span
+                  class="paddingLR_small uk-margin-large-left uk-margin-bottom-remove uk-align-right">{{ activity.start|date:'Y-m-d' }}</span>{{ activity.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <!-- .card -->
+        </div>
+        <div class="uk-width-medium-1-2">
+          <div
+            class="card_bgTop bg_whiteOpacity8 border_remove borderRadius10 box_shadow1 uk-panel uk-panel-box uk-overflow-hidden"
+            style="max-height: 400px;">
+            <div class="bg_img_top uk-overlay-panel"></div>
+            <div class="padding_medium uk-position-relative">
+              <div class="bg_secondary opacity80 uk-overlay-panel"></div>
+              <h5 class="uk-text-contrast uk-margin-remove uk-position-relative"><i class="fas fa-bookmark fa-fw"></i>成果公告
+              </h5>
+            </div>
+            <ul class="marginT_medium uk-list uk-list-line uk-position-relative">
+              {% for activity in history %}
+              <li class="border_black_opacity5">
+                <a class="listFaIcon_indent hover_color_black uk-display-block" href="{% url 'game:history_detail' activity.id %}" title="{{ activity.title }}"><i
+                  class="fas fa-angle-right fa-fw"></i><span
+                  class="paddingLR_small uk-margin-large-left uk-margin-bottom-remove uk-align-right">{{ activity.start|date:'Y-m-d' }}</span>{{ activity.title }}</a>
+              </li>
+              {% endfor %}
+
+            </ul>
+          </div>
+          <!-- .card -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .uk-container -->
+</div>
+{% endblock %}

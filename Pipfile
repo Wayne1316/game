@@ -1,0 +1,42 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+mysql-python = "*"
+gunicorn = "*"
+django = "==1.11"
+pathlib = "*"
+django-suit = {git = "https://github.com/darklow/django-suit.git", ref = "v2"}
+django-debug-toolbar = "*"
+whitenoise = "*"
+django-model-utils = "*"
+"enum34" = "*"
+pillow = "*"
+django-dotenv = "*"
+django-simple-captcha = "*"
+zeep = "*"
+django-admin-honeypot = "*"
+dj-pagination = "*"
+djangorestframework = "*"
+django-suit-redactor = "*"
+django-ganalytics = "*"
+google-api-python-client = "*"
+"oauth2client" = "*"
+celery = "*"
+django-celery-beat = "*"
+redis = "*"
+django-celery-results = "*"
+
+
+[dev-packages]
+
+
+
+[requires]
+
+python_version = "2.7"

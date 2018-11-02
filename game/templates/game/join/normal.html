@@ -1,0 +1,16 @@
+{% extends 'game/join/base.html' %}
+{% load static %}
+{% load game_tags %}
+{% load core_tags %}
+
+{% block join_form %}
+  <fieldset class="uk-margin-top" data-uk-margin>
+  {% error_list errors=form.file.errors %}
+    <div class="uk-form-row uk-margin">
+      <div class="uk-form-file uk-width-responsive">
+        <button class="uk-button uk-button-large uk-width-responsive">上傳檔案</button>
+        <input id="file" name="file" type="file">
+      </div>
+    </div>
+  </fieldset>
+{% endblock %}

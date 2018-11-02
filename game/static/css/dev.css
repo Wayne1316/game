@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+ul.errorlist{
+    padding: 0px;
+}
+
+ul.errorlist li{
+    list-style: none;
+    background-color: #eddbe3;
+    border-color: #e8d1df;
+    color: #bd4247;
+    padding: 8px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}

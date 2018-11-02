@@ -1,0 +1,32 @@
+{% extends 'game/base.html' %}
+{% load game_tags %}
+
+
+{% block customcontent %}
+  <h2 class="color_grey underline">{{ object.group.activity.title }}-{{ object.group.group.title }}</h2>
+  <ul class="uk-list uk-list-striped uk-text-center">
+    {% join_field '作品名稱' object.title %}
+    {% join_field '書名(篇名)' object.book_title %}
+    {% join_field '作者(譯者)' object.author %}
+    {% join_field '書籍ISBN' object.isbn %}
+    {% join_field '出版年' object.publish_date %}
+    {% join_field '出版社' object.publisher %}
+    {% join_field '頁數' object.page %}
+    {% if object.file %}
+    <li>
+      <div class="uk-width-medium-3-4 uk-width-xlarge-1-2 uk-container-center">
+        <h6 class="uk-grid">
+          <div class="uk-width-medium-1-3 uk-margin-small-top uk-margin-small-bottom text_center_mR">上傳檔案</div>
+          <div class="uk-width-medium-2-3 uk-margin-small-top uk-margin-small-bottom">
+            <a href="{% url 'game:jury_file' object.id %}" target="_blank"><strong>檔案連結</strong></a>
+          </div>
+        </h6>
+      </div>
+    </li>
+    {% endif %}
+    {% join_field '相關書訊(內容大意)' object.abstract %}
+    {% join_field '內容摘錄' object.extract %}
+    {% join_field '我的觀點' object.opinion %}
+    {% join_field '討論議題' object.discuss %}
+  </ul>
+{% endblock %}

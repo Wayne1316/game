@@ -1,0 +1,78 @@
+{% extends 'game/join/base.html' %}
+{% load static %}
+{% load game_tags %}
+{% load core_tags %}
+
+{% block join_form %}
+  <fieldset class="uk-margin-top" data-uk-margin>
+    {% error_list errors=form.file.errors %}
+    <div class="uk-form-row uk-margin">
+      <div class="uk-form-file uk-width-responsive">
+        <button class="uk-button uk-button-large uk-width-responsive">上傳檔案</button>
+        <input id="file" name="file" type="file">
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="uk-margin-top" data-uk-margin>
+    <legend class="uk-margin-remove"><i class="fas fa-chevron-circle-right uk-margin-small-right"></i>共同報名人(選填)</legend>
+    <div class="uk-form-row">
+      <div class="uk-grid uk-grid-small uk-grid-width-medium-1-3" data-uk-margin>
+        <div>
+          {% error_list errors=member_forms.0.member_class.errors %}
+          <label class="uk-form-label" for="member-0-member_class">班級</label>
+          <div class="uk-form-controls">
+            <input id="member-0-member_class" name="member-0-member_class" class="uk-form-large uk-width-responsive"
+                   type="text" placeholder="請填寫班級" value="{{ member_forms.0.member_class.value }}">
+          </div>
+        </div>
+        <div>
+          {% error_list errors=member_forms.0.name.errors %}
+          <label class="uk-form-label" for="member-0-name">姓名</label>
+          <div class="uk-form-controls">
+            <input id="member-0-name" name="member-0-name" class="uk-form-large uk-width-responsive"
+                   type="text" placeholder="請填寫姓名" value="{{ member_forms.0.name.value }}">
+          </div>
+        </div>
+        <div>
+          {% error_list errors=member_forms.0.setno.errors %}
+          <label class="uk-form-label" for="member-0-setno">座號</label>
+          <div class="uk-form-controls">
+            <input id="member-0-setno" name="member-0-setno" class="uk-form-large uk-width-responsive"
+                   type="text" placeholder="請填寫座號" value="{{ member_forms.0.setno.value }}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="uk-margin-top" data-uk-margin>
+    <legend class="uk-margin-remove"><i class="fas fa-chevron-circle-right uk-margin-small-right"></i>共同報名人(選填)</legend>
+    <div class="uk-form-row">
+      <div class="uk-grid uk-grid-small uk-grid-width-medium-1-3" data-uk-margin>
+        <div>
+          {% error_list errors=member_forms.1.member_class.errors %}
+          <label class="uk-form-label" for="member-1-member_class">班級</label>
+          <div class="uk-form-controls">
+            <input id="member-1-member_class" name="member-1-member_class" class="uk-form-large uk-width-responsive"
+                   type="text" placeholder="請填寫班級" value="{{ member_forms.1.member_class.value }}">
+          </div>
+        </div>
+        <div>
+          {% error_list errors=member_forms.1.name.errors %}
+          <label class="uk-form-label" for="member-1-name">姓名</label>
+          <div class="uk-form-controls">
+            <input id="member-1-name" name="member-1-name" class="uk-form-large uk-width-responsive"
+                   type="text" placeholder="請填寫姓名" value="{{ member_forms.1.name.value }}">
+          </div>
+        </div>
+        <div>
+          {% error_list errors=member_forms.1.setno.errors %}
+          <label class="uk-form-label" for="member-1-setno">座號</label>
+          <div class="uk-form-controls">
+            <input id="member-1-setno" name="member-1-setno" class="uk-form-large uk-width-responsive"
+                   type="text" placeholder="請填寫座號" value="{{ member_forms.1.setno.value }}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+{% endblock %}

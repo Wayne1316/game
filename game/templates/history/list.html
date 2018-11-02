@@ -1,0 +1,66 @@
+{% extends 'history/base.html' %}
+{% load static %}
+{% load game_tags %}
+
+{% block menujs %}
+  {% if subject %}
+    <script>
+      $(function () {
+        $('.listTabs ul>li[data-id={{ subject.pk }}]').addClass('uk-active');
+      })
+    </script>
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block subject_image %}
+  {% if subject.banner %}
+    {{ subject.banner.url }}
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+
+{% block customcontent %}
+  <div class="uk-width-large-3-4">
+    <form class="uk-form uk-margin uk-grid uk-grid-collapse" data-uk-grid-margin method="get">
+      <div class="uk-width-7-10 uk-width-small-8-10">
+        <input class="uk-width-1-1" type="text" name="keyword" placeholder="請輸入內容">
+      </div>
+      <div class="uk-width-3-10 uk-width-small-2-10">
+        <button class="btn_primary uk-button uk-margin-small-left uk-width-1-1"><i
+          class="fas fa-search uk-margin-small-right"></i>搜尋</button>
+      </div>
+    </form>
+
+    {% if paginator.count %}
+    {% include 'components/page.html' %}
+    <table class="table_rwd uk-table uk-table-striped">
+      <thead class="uk-hidden-small">
+      <tr>
+        <th class="date uk-width-1-1 uk-width-medium-2-10">日期</th>
+        <th class="topic uk-width-1-1 uk-width-medium-6-10">主題</th>
+        <th class="department uk-width-1-1 uk-width-medium-2-10">活動類型</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for activity in activity_list %}
+      <tr>
+        <td class="date uk-width-1-1 uk-width-medium-2-10">{{ activity.start|date:'Y-m-d' }}</td>
+        <td class="topic uk-width-1-1 uk-width-medium-6-10">
+          <a href="{% url 'game:history_detail' activity.id %}" title="{{ activity.title }}" class="hover_color_black">
+            {{ activity.title }}
+          </a>
+        </td>
+        <td class="department uk-width-1-1 uk-width-medium-2-10">{{ activity.form| form_value }}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% include 'components/page.html' %}
+    {% endif %}
+
+  </div>
+{% endblock %}

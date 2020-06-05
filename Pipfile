@@ -9,7 +9,7 @@ name = "pypi"
 
 mysql-python = "*"
 gunicorn = "*"
-django = "==1.11"
+django = "==1.11.29"
 pathlib = "*"
 django-suit = {git = "https://github.com/darklow/django-suit.git", ref = "v2"}
 django-debug-toolbar = "*"
